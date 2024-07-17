@@ -24,7 +24,9 @@ class _MarketPageState extends State<MarketPage> {
     return Scaffold(
       appBar: AppBar(
         leading: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           child: const Text(
             'Back',
             style: TextStyle(color: kPrimaryColor),

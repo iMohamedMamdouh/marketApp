@@ -19,9 +19,7 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () {},
           icon: const Icon(
             Icons.close,
             color: Color(0xFFBDBDBD),
@@ -34,9 +32,7 @@ class _SignupPageState extends State<SignupPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) {
-                    return const LoginPage();
-                  },
+                  builder: (context) => const LoginPage(),
                 ),
               );
             },

@@ -17,12 +17,8 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const MarketPage(),
-            ),
-          );
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const MarketPage()));
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: kPrimaryColor,
