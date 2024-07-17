@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:session2/Constants.dart';
+import 'package:session2/pages/market_page.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -15,7 +16,14 @@ class CustomButton extends StatelessWidget {
       height: 51.0,
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MarketPage(),
+            ),
+          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: kPrimaryColor,
           shape: RoundedRectangleBorder(
