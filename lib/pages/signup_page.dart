@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:session2/Constants.dart';
+import 'package:session2/pages/feed_page.dart';
 import 'package:session2/pages/login_page.dart';
 import 'package:session2/widgets/custom_button.dart';
 import 'package:session2/widgets/custom_form_textfield.dart';
@@ -77,7 +78,7 @@ class _SignupPageState extends State<SignupPage> {
                       },
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(top: 12.0),
+                      padding: EdgeInsets.only(top: 14.0),
                       child: Text(
                         'I would like to receive your newsletter and other\n promotional information.',
                         style: TextStyle(
@@ -90,8 +91,16 @@ class _SignupPageState extends State<SignupPage> {
                 const SizedBox(
                   height: 32.0,
                 ),
-                const CustomButton(
+                CustomButton(
                   text: 'Sign Up',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FeedPage(),
+                      ),
+                    );
+                  },
                 ),
                 const Padding(
                   padding: EdgeInsets.all(16.0),

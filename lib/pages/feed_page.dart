@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:session2/Constants.dart';
-import 'package:session2/widgets/rowmarket_listView.dart';
+import 'package:session2/widgets/rowfeed_listview.dart';
 import 'package:session2/widgets/search_widget.dart';
 import 'package:session2/widgets/title_widget.dart';
 
-class MarketPage extends StatefulWidget {
-  const MarketPage({super.key});
-
-  @override
-  _MarketPageState createState() => _MarketPageState();
-}
-
-class _MarketPageState extends State<MarketPage> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    _selectedIndex = index;
-    setState(() {});
-  }
+class FeedPage extends StatelessWidget {
+  const FeedPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +20,9 @@ class _MarketPageState extends State<MarketPage> {
             style: TextStyle(color: kPrimaryColor),
           ),
         ),
-        title: const TitleWidget(title: 'Market'),
+        title: const TitleWidget(
+          title: 'Feed',
+        ),
         actions: [
           TextButton(
             onPressed: () {},
@@ -43,27 +33,31 @@ class _MarketPageState extends State<MarketPage> {
           ),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
           slivers: [
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SearchWidget(),
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 32,
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => const RowfeedListview(),
+                childCount: 4,
               ),
             ),
-            SliverToBoxAdapter(
-              child: RowmarketListview(title: 'Hot Deals'),
-            ),
-            SliverToBoxAdapter(
-              child: RowmarketListview(title: 'Trending'),
-            ),
-            SliverToBoxAdapter(
-              child: RowmarketListview(title: 'Deals'),
+            SliverPadding(
+              padding: const EdgeInsets.only(top: 8),
+              sliver: SliverToBoxAdapter(
+                child: Container(
+                  height: 227.98,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF6F6F6),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
@@ -81,10 +75,8 @@ class _MarketPageState extends State<MarketPage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.circle, size: 32), label: ""),
         ],
-        currentIndex: _selectedIndex,
         selectedItemColor: kPrimaryColor,
-        unselectedItemColor: const Color(0xFFE8E8E8),
-        onTap: _onItemTapped,
+        unselectedItemColor: kSecondaryColor,
         type: BottomNavigationBarType.fixed, // To display all icons
       ),
     );

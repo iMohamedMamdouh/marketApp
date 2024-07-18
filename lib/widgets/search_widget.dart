@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:session2/Constants.dart';
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key});
@@ -16,7 +17,7 @@ class SearchWidget extends StatelessWidget {
           borderSide: BorderSide.none,
         ),
         hintText: 'Search',
-        hintStyle: TextStyle(color: Color(0xFFBDBDBD)),
+        hintStyle: TextStyle(color: kHintColor),
         filled: true,
         fillColor: Color(0xFFF6F6F6),
       ),

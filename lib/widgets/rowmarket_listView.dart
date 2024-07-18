@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:session2/widgets/card_widget.dart';
 
-class RowListview extends StatelessWidget {
-  const RowListview({super.key, required this.title});
+class RowmarketListview extends StatelessWidget {
+  const RowmarketListview({super.key, required this.title});
 
   final String title;
 
