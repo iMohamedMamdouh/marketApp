@@ -23,7 +23,6 @@ class _CustomFormTextfieldState extends State<CustomFormTextfield> {
         height: 50,
         child: TextFormField(
           obscureText: widget.showSuffixButton ? _isObscured : false,
-          validator: (data) => data!.isEmpty ? 'Field cannot be empty' : null,
           decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -37,7 +36,7 @@ class _CustomFormTextfieldState extends State<CustomFormTextfield> {
             fillColor: const Color(0xFFF6F6F6),
             label: Text(widget.hintText ?? ''),
             labelStyle: const TextStyle(color: kHintColor),
-            suffix: widget.showSuffixButton
+            suffixIcon: widget.showSuffixButton
                 ? TextButton(
                     onPressed: () {
                       setState(() {
@@ -51,11 +50,6 @@ class _CustomFormTextfieldState extends State<CustomFormTextfield> {
                     ),
                   )
                 : null,
-            suffixStyle: const TextStyle(
-              color: kPrimaryColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 16,
-            ),
           ),
         ),
       ),
